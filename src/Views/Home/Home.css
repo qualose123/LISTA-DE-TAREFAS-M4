@@ -2,34 +2,13 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap:2rem;
+    gap:1rem;
     align-items: center;
     min-height: 100vh;
+    margin-top: 2rem;
 }
 
 .C-Card{
     margin-bottom: 0.5rem;
 }
 
-.Form-New-Task{
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    max-width: 50%;
-    border-radius: 10px;
-    background-color:#0046A4;
-    padding: 2rem;
-}
-
-.Form{
-    padding: 1rem;
-    border-radius: 10px;
-    background-color:#d0dff5;
-    color: black;
-}
-
-.Form::placeholder{
-    color: #053677;
-    font-style: italic;
-}

@@ -4,13 +4,13 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Spinner from "react-bootstrap/Spinner";
 import Button from "react-bootstrap/Button";
-
+import Create from "../../Components/Create/Create";
 function Home() {
   //state do getall
   const [tarefa, setTarefa] = useState([]);
   //state do loading
   const [loading, setLoading] = useState(false);
-
+  //state para create
   const getAllTarefas = async () => {
     // Aki ele tenta fazer a requisição, e se der erro ele para e vai pro catch
     try {
@@ -38,9 +38,6 @@ function Home() {
     getAllTarefas();
   }, []);
 
-
-  //PARTE DO CREATE
-  
   return (
     <div>
       {/* Esse Loading abaixo exibe um spinner de giratorio com a palavra loading, enquanto o site estiver requisitando */}
@@ -72,39 +69,7 @@ function Home() {
       {/*Esse Loading, esconde o spinner loading após a requisição está completa e exibe o código abaixo*/}
       {!loading && (
         <>
-          <fieldset>
-            <legend>Adicionar Nova Tarefa</legend>
-            <div className="Form-New-Task">
-              <input
-                //  value={novaTarefa.title}
-                type="text"
-                // onChange={}
-                className="Form"
-                placeholder="Digite um Título"
-              />
-              <input
-                //  value={novaTarefa.objective}
-                type="text"
-                // onChange={HandleChangeCreate}
-                className="Form"
-                placeholder="Objetivo da Tarefa"
-              />
-              <input
-                //  value={}
-                type="url"
-                // onChange={HandleChangeCreate}
-                className="Form"
-                placeholder="Digite o Link da imagem da Tarefa Ex: https://img/google.png"
-              />
-              <textarea
-                //  value={novaTarefa.description}
-                //  onChange={HandleChangeCreate}
-                placeholder="Uma breve descrição da Tarefa"
-                className="Form"
-              ></textarea>
-              <button className="Form">CADASTRAR</button>
-            </div>
-          </fieldset>
+         <Create/>
 
           <div className="container-Mainn">
             {tarefa.map((tarefa, index) => (
@@ -119,10 +84,6 @@ function Home() {
                   <ListGroup className="list-group-flush">
                     <ListGroup.Item>{tarefa.objective}</ListGroup.Item>
                   </ListGroup>
-                  <Card.Body>
-                    <Card.Link href="#">Editar</Card.Link>
-                    <Card.Link href="#">Deletar</Card.Link>
-                  </Card.Body>
                 </Card>
               </div>
             ))}
