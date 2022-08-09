@@ -12,17 +12,26 @@ function Home() {
   const [loading, setLoading] = useState(false);
 
   const getAllTarefas = async () => {
-    //aki faz com q o spinner apareça antes e durante a requisição a API
-    setLoading(true);
-    //diz q é uma func asyncrona
-    //faz requisição e espera a resposta, e guarda essa resposta
-    let response = await fetch("http://localhost:8000/tarefas");
-    //Espera a resposta e transforma ela em json e salva o mesmo na variavel
-    let json = await response.json();
-    //esse aki faz com que o spinner suma, após a requisição da API
-    setLoading(false);
-    //aki está a resposta json, aki faço o que quiser cm ela
-    setTarefa(json);
+    // Aki ele tenta fazer a requisição, e se der erro ele para e vai pro catch
+    try {
+      //aki faz com q o spinner apareça antes e durante a requisição a API
+      setLoading(true);
+      //diz q é uma func asyncrona
+      //faz requisição e espera a resposta, e guarda essa resposta
+      let response = await fetch("http://localhost:8000/tarefas");
+      //Espera a resposta e transforma ela em json e salva o mesmo na variavel
+      let json = await response.json();
+      //esse aki faz com que o spinner suma, após a requisição da API
+      setLoading(false);
+      //aki está a resposta json, aki faço o que quiser cm ela
+      setTarefa(json);
+      //o Catch ele recebe o erro como parâmetro e eu faço o que quiser com essa informação, como por exemplo setLoading(false) para o spinner de carregar
+    } catch (e) {
+      setLoading(false);
+      alert("Erro, por favor recarregue a página ou tente conectar mais tarde");
+      //AKI ele exibe o error no console
+      console.error(e);
+    }
   };
 
   useEffect(() => {
