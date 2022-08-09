@@ -10,8 +10,6 @@ function Home() {
   const [tarefa, setTarefa] = useState([]);
   //state do loading
   const [loading, setLoading] = useState(false);
-  //State para create/post
-  const [AddTarefa, setAddTarefa] = useState("");
 
   const getAllTarefas = async () => {
     // Aki ele tenta fazer a requisição, e se der erro ele para e vai pro catch
@@ -40,6 +38,9 @@ function Home() {
     getAllTarefas();
   }, []);
 
+
+  //PARTE DO CREATE
+  
   return (
     <div>
       {/* Esse Loading abaixo exibe um spinner de giratorio com a palavra loading, enquanto o site estiver requisitando */}
@@ -75,25 +76,29 @@ function Home() {
             <legend>Adicionar Nova Tarefa</legend>
             <div className="Form-New-Task">
               <input
-                value={AddTarefa}
+                //  value={novaTarefa.title}
                 type="text"
+                // onChange={}
                 className="Form"
                 placeholder="Digite um Título"
               />
               <input
-                value={AddTarefa}
+                //  value={novaTarefa.objective}
                 type="text"
+                // onChange={HandleChangeCreate}
                 className="Form"
                 placeholder="Objetivo da Tarefa"
               />
               <input
-                value={AddTarefa}
+                //  value={}
                 type="url"
+                // onChange={HandleChangeCreate}
                 className="Form"
                 placeholder="Digite o Link da imagem da Tarefa Ex: https://img/google.png"
               />
               <textarea
-                value={AddTarefa}
+                //  value={novaTarefa.description}
+                //  onChange={HandleChangeCreate}
                 placeholder="Uma breve descrição da Tarefa"
                 className="Form"
               ></textarea>
