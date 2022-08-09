@@ -4,7 +4,6 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Spinner from "react-bootstrap/Spinner";
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 
 function Home() {
   //state do getall
@@ -12,6 +11,7 @@ function Home() {
   //state do loading
   const [loading, setLoading] = useState(false);
   //State para create/post
+  const [AddTarefa, setAddTarefa] = useState("");
 
   const getAllTarefas = async () => {
     // Aki ele tenta fazer a requisição, e se der erro ele para e vai pro catch
@@ -71,16 +71,35 @@ function Home() {
       {/*Esse Loading, esconde o spinner loading após a requisição está completa e exibe o código abaixo*/}
       {!loading && (
         <>
-          <fieldset  >
-          <legend>Adicionar Nova Tarefa</legend>
-          <div className="Form-New-Task">
-          <input type="text" className="Form" placeholder="Digite um Título" />
-          <input type="text" className="Form" placeholder="Objetivo da Tarefa" />
-          <input type="url" className="Form" placeholder="Digite o Link da imagem da Tarefa Ex: https://img/google.png"/>
-          <textarea placeholder="Uma breve descrição da Tarefa" className="Form"></textarea>
-          <button className="Form">CADASTRAR</button>
-          </div>
-        </fieldset>
+          <fieldset>
+            <legend>Adicionar Nova Tarefa</legend>
+            <div className="Form-New-Task">
+              <input
+                value={AddTarefa}
+                type="text"
+                className="Form"
+                placeholder="Digite um Título"
+              />
+              <input
+                value={AddTarefa}
+                type="text"
+                className="Form"
+                placeholder="Objetivo da Tarefa"
+              />
+              <input
+                value={AddTarefa}
+                type="url"
+                className="Form"
+                placeholder="Digite o Link da imagem da Tarefa Ex: https://img/google.png"
+              />
+              <textarea
+                value={AddTarefa}
+                placeholder="Uma breve descrição da Tarefa"
+                className="Form"
+              ></textarea>
+              <button className="Form">CADASTRAR</button>
+            </div>
+          </fieldset>
 
           <div className="container-Mainn">
             {tarefa.map((tarefa, index) => (
