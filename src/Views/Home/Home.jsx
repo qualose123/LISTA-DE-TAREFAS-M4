@@ -4,12 +4,14 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Spinner from "react-bootstrap/Spinner";
 import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 
 function Home() {
   //state do getall
   const [tarefa, setTarefa] = useState([]);
   //state do loading
   const [loading, setLoading] = useState(false);
+  //State para create/post
 
   const getAllTarefas = async () => {
     // Aki ele tenta fazer a requisição, e se der erro ele para e vai pro catch
@@ -65,16 +67,25 @@ function Home() {
           </Button>
         </div>
       )}
+
       {/*Esse Loading, esconde o spinner loading após a requisição está completa e exibe o código abaixo*/}
       {!loading && (
         <>
-          <div>
-            <h1> To Do List </h1>
+          <fieldset  >
+          <legend>Adicionar Nova Tarefa</legend>
+          <div className="Form-New-Task">
+          <input type="text" className="Form" placeholder="Digite um Título" />
+          <input type="text" className="Form" placeholder="Objetivo da Tarefa" />
+          <input type="url" className="Form" placeholder="Digite o Link da imagem da Tarefa Ex: https://img/google.png"/>
+          <textarea placeholder="Uma breve descrição da Tarefa" className="Form"></textarea>
+          <button className="Form">CADASTRAR</button>
           </div>
+        </fieldset>
 
-          <div className="container">
+          <div className="container-Mainn">
             {tarefa.map((tarefa, index) => (
               <div className="C-Card" key={index}>
+                {/*Abaixo é um card do React-Bootstrap */}
                 <Card style={{ width: "18rem" }}>
                   <Card.Img variant="top" src={tarefa.imagem} />
                   <Card.Body>
