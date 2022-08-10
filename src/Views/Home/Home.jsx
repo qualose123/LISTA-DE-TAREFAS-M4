@@ -5,14 +5,13 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Spinner from "react-bootstrap/Spinner";
 import Button from "react-bootstrap/Button";
 import Create from "../Create/Create";
+import { Link } from "react-router-dom";
 
 function Home() {
   //state do getall
   const [tarefa, setTarefa] = useState([]);
   //state do loading
   const [loading, setLoading] = useState(false);
-
- 
 
   const getAllTarefas = async () => {
     // Aki ele tenta fazer a requisição, e se der erro ele para e vai pro catch
@@ -40,8 +39,6 @@ function Home() {
   useEffect(() => {
     getAllTarefas();
   }, []);
-
-
 
   return (
     <div>
@@ -74,14 +71,18 @@ function Home() {
       {/*Esse Loading, esconde o spinner loading após a requisição está completa e exibe o código abaixo*/}
       {!loading && (
         <>
-         <Create/>
+          <Create />
 
           <div className="container-Mainn">
             {tarefa.map((tarefa, index) => (
               <div className="C-Card" key={index}>
                 {/*Abaixo é um card do React-Bootstrap */}
                 <Card style={{ width: "18rem" }}>
-                  <Card.Img variant="top" className="IMGG" src={tarefa.imagem} />
+                  <Card.Img
+                    variant="top"
+                    className="IMGG"
+                    src={tarefa.imagem}
+                  />
                   <Card.Body>
                     <Card.Title>{tarefa.title}</Card.Title>
                     <Card.Text>{tarefa.description}</Card.Text>
@@ -91,7 +92,11 @@ function Home() {
                   </ListGroup>
 
                   <Card.Body>
-                    <Card.Link href="#">Detalhes</Card.Link>
+                    <Button variant="outline-info">
+                      <Link className="DT-LINK" to="/details">
+                        Detalhes
+                      </Link>
+                    </Button>{" "}
                   </Card.Body>
                 </Card>
               </div>

@@ -13,7 +13,7 @@ function App() {
         <h1> To Do List </h1>
     <Routes>
       <Route path='/' element={<Home/>}/>
-      <Route path='/Details' element={<Details/>}/>
+      <Route path='/details' element={<Details/>}/>
       <Route path="*" element={<NotFound/>}/>
     </Routes>
       

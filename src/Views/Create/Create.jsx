@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useState } from "react";
 import "./Create.css";
 
@@ -9,10 +8,10 @@ function Create() {
   const [imagem, setImagem] = useState("");
   const [descricao, setDescricao] = useState("");
 
-  //Função para recarregar a página ao criar uma tarefa
-  // const handleHomeButton = () => {
-  //   window.location.reload()
-  // };
+  // Função para recarregar a página ao criar uma tarefa
+  const handleHomeButton = () => {
+    window.location.reload()
+  };
 //capturador do valor dos inputs
   const HandleChangeCreateTitle = (e) => {
     setTitulo(e.target.value);
@@ -45,7 +44,7 @@ function Create() {
       let json = await response.json();
       console.log(json);
       if (json.id) {
-        // handleHomeButton()
+        handleHomeButton()
         alert("Tarefa adicionado com Sucesso!");
         
       } else {
@@ -55,10 +54,6 @@ function Create() {
       alert("Preencha os dados!");
     }
   };
-
-  useEffect(()=>{
-   
-  })
 
   return (
     <>
