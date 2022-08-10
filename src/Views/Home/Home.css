@@ -2,9 +2,10 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap:2rem;
+    gap:1rem;
     align-items: center;
     min-height: 100vh;
+    margin-top: 2rem;
 }
 
 .IMGG{

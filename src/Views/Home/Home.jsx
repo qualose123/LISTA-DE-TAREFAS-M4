@@ -4,14 +4,22 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Spinner from "react-bootstrap/Spinner";
 import Button from "react-bootstrap/Button";
+<<<<<<< HEAD
 import Create from "../Create/Create";
+=======
+import Create from "../../Components/Create/Create";
+>>>>>>> 4f16813d692758bcfb1623c63546e36fe2f85fbf
 function Home() {
   //state do getall
   const [tarefa, setTarefa] = useState([]);
   //state do loading
   const [loading, setLoading] = useState(false);
+<<<<<<< HEAD
  
 
+=======
+  //state para create
+>>>>>>> 4f16813d692758bcfb1623c63546e36fe2f85fbf
   const getAllTarefas = async () => {
     // Aki ele tenta fazer a requisição, e se der erro ele para e vai pro catch
     try {
@@ -39,8 +47,11 @@ function Home() {
     getAllTarefas();
   }, []);
 
+<<<<<<< HEAD
  
  
+=======
+>>>>>>> 4f16813d692758bcfb1623c63546e36fe2f85fbf
   return (
     <div>
       {/* Esse Loading abaixo exibe um spinner de giratorio com a palavra loading, enquanto o site estiver requisitando */}
@@ -87,9 +98,12 @@ function Home() {
                   <ListGroup className="list-group-flush">
                     <ListGroup.Item>{tarefa.objective}</ListGroup.Item>
                   </ListGroup>
+<<<<<<< HEAD
                   <Card.Body>
                     <Card.Link href="#">Detalhes</Card.Link>
                   </Card.Body>
+=======
+>>>>>>> 4f16813d692758bcfb1623c63546e36fe2f85fbf
                 </Card>
               </div>
             ))}
