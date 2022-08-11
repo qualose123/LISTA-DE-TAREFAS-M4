@@ -21,8 +21,11 @@ function Details(closeModal) {
 
   return (
     <>
+       
       {detalhes && (
+        
         <div className="Details">
+           <h1 className='Titulo-D'> To Do List </h1>
           <div className="Container-Details">
             <Card className="card-details" style={{ width: "18rem" }}>
               <Card.Img variant="top" className="IMGG" src={detalhes.imagem} />
