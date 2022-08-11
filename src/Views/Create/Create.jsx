@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { StyledButton } from "../../Styles/styled-components";
 import "./Create.css";
 
 function Create() {
@@ -61,12 +62,12 @@ function Create() {
         <legend>Adicionar Nova Tarefa</legend>
         <div className="Form-New-Task">
           <input
-            maxLength={20}
+            maxLength={24}
             value={titulo}
             type="text"
             onChange={HandleChangeCreateTitle}
             className="Form"
-            placeholder="Digite um Título (MAX. 20 CHARACTERES)"
+            placeholder="Digite um Título (MAX. 24 CHARACTERES)"
           />
           <input
             maxLength={27}
@@ -91,9 +92,9 @@ function Create() {
             maxLength={55}
 
           ></textarea>
-          <button onClick={handleAddClick} className="Form">
-            CADASTRAR
-          </button>
+          <StyledButton onClick={handleAddClick}>
+            CADASTRAR       
+          </StyledButton>
         </div>
       </fieldset>
     </>

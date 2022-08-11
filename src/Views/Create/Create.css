@@ -25,4 +25,10 @@
 legend{
     font-family: 'Rubik Moonrocks';
     font-weight: bold;
+    text-shadow: -2px -2px #0396FF
+}
+
+button:hover{
+background-color: rgb(48, 227, 48);
+transition: .5s ease-in-out;
 }
