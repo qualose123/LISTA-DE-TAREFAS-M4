@@ -2,55 +2,51 @@ import "./Details.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
-import {useState,} from 'react'
-import {Link, useParams } from 'react-router-dom'
-function Details() {
+import {Link} from 'react-router-dom'
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+function Details(closeModal) {
+  const { id } = useParams();
 
-const [tarefa,setTarefa] = useState({})
+  const baseUrl = `http://localhost:8000/tarefas/${id}`;
 
-const params = useParams()
-    const{id} = params
-    console.log(id)
+  const [detalhes, setDetalhes] = useState([]);
 
-    async function getTarefaByID(){
-      const response = await fetch(`http://localhost:8000/tarefas/${id}`)
-      const tarefaById = await response.json()
-      setTarefa({...tarefaById})
-  }
+  useEffect(() => {
+    axios.get(baseUrl).then((response) => {
+      setDetalhes(response.data);
+    });
+  }, []);
 
-
-  
   return (
-    <div className="Details">
-      <h1 className="Title"> To Do List </h1>
-      <div className="Container-Details">
-        <Card className="card-details" style={{ width: "18rem" }}>
-          <Card.Img
-            variant="top"
-            className="IMGG"
-            // src={tarefa.imagem}
-          />
-          <Card.Body>
-            <Card.Title>Título:{}</Card.Title>
-            <Card.Text>Objetivo:{}</Card.Text>
-          </Card.Body>
-          <ListGroup className="list-group-flush">
-            <ListGroup.Item>Descrição:{}</ListGroup.Item>
-          </ListGroup>
-
-          <Card.Body>
+    <>
+      {detalhes && (
+        <div className="Details">
+          <div className="Container-Details">
+            <Card className="card-details" style={{ width: "18rem" }}>
+              <Card.Img variant="top" className="IMGG" src={detalhes.imagem} />
+              <Card.Body>
+                <Card.Title>Título:{detalhes.title}</Card.Title>
+                <Card.Text>Objetivo:{detalhes.objective}</Card.Text>
+              </Card.Body>
+              <ListGroup className="list-group-flush">
+                <ListGroup.Item>
+                  Descrição:{detalhes.description}
+                </ListGroup.Item>
+              </ListGroup>
+              <Card.Body>
             <Button variant="outline-info">
-              <Link className="DT-LINK" to="/details">
-                Detalhes
+              <Link className="DT-LINK" to="/">
+                Home
               </Link>
             </Button>{" "}
           </Card.Body>
-        </Card>
-      </div>
-      <Button className="Link-Home" variant="primary">
-        <Link className="Link" to="/">Home</Link>
-      </Button>{" "}
-    </div>
+            </Card>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 

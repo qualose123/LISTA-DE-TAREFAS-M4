@@ -94,7 +94,7 @@ function Home() {
 
                   <Card.Body>
                     <Button variant="outline-info">
-                      <Link className="DT-LINK" to="/details">
+                      <Link className="DT-LINK" to={`/details/${tarefa.id}`}>
                         Detalhes
                       </Link>
                     </Button>{" "}
