@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One:ital@1&display=swap');
 
+.Title{
+    padding-top: 2rem;
+     font-family: 'Rubik Moonrocks';
+     font-size: 60px;
+     text-shadow: -2px -2px #0396FF;
+   } 
+   
 .container-Mainn{
     display: flex;
     justify-content: center;

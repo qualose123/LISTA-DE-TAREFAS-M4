@@ -42,6 +42,7 @@ function Home() {
 
   return (
     <div>
+       <h1 className='Title'> To Do List </h1>
       {/* Esse Loading abaixo exibe um spinner de giratorio com a palavra loading, enquanto o site estiver requisitando */}
       {loading && (
         <div>

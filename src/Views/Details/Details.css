@@ -1,0 +1,54 @@
+.Details {
+  background-image: linear-gradient(to bottom right, #abdcff, #0396ff);
+  text-align: center;
+  min-height: 100vh;
+}
+
+.Title {
+  padding-top: 2rem;
+  font-family: "Rubik Moonrocks";
+  font-size: 60px;
+  text-shadow: -2px -2px #0396ff;
+}
+
+.Container-Details{
+display: flex;
+justify-content: center;
+margin-bottom: 2rem;
+
+}
+
+.IMGG {
+  max-height: 217.35px;
+  min-height: 217.35px;
+}
+
+.C-Card {
+  margin-bottom: 0.5rem;
+  font-family: "Alumni sans";
+  font-weight: bold;
+  max-height: 443.34px;
+}
+.DT-LINK{
+    text-decoration: none;
+}
+
+.card-details{
+    min-height: 443.34px;
+    max-height: 443.34px;
+}
+
+.Link-Home{
+    margin-bottom: 2rem;
+    color: white;
+
+}
+
+.Link{
+    text-decoration: none;
+    color: white;
+}
+
+.Link:hover{
+    color: rgb(247, 250, 61);
+}
