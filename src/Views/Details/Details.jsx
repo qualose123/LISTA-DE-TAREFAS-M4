@@ -1,10 +1,25 @@
 import "./Details.css";
-import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
-
+import {useState,} from 'react'
+import {Link, useParams } from 'react-router-dom'
 function Details() {
+
+const [tarefa,setTarefa] = useState({})
+
+const params = useParams()
+    const{id} = params
+    console.log(id)
+
+    async function getTarefaByID(){
+      const response = await fetch(`http://localhost:8000/tarefas/${id}`)
+      const tarefaById = await response.json()
+      setTarefa({...tarefaById})
+  }
+
+
+  
   return (
     <div className="Details">
       <h1 className="Title"> To Do List </h1>

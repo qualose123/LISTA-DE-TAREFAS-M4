@@ -29,7 +29,7 @@ function Create() {
 //funçao para ligar o state aos json da api
   const handleAddClick = async () => {
     if (titulo && objetivo && imagem && descricao) {
-      let response = await fetch("http://localhost:8000/tarefas", {
+     const response = await fetch("http://localhost:8000/tarefas", {
         method: "POST",
         body: JSON.stringify({
           title: titulo,
