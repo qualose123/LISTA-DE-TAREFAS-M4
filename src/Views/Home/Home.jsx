@@ -72,23 +72,23 @@ function Home() {
       {!loading && (
         <>
           <Create />
-
+        <h2 className="ListCardTitle">Tarefas</h2>
           <div className="container-Mainn">
             {tarefa.map((tarefa, index) => (
               <div className="C-Card" key={index}>
                 {/*Abaixo é um card do React-Bootstrap */}
-                <Card style={{ width: "18rem" }}>
+                <Card className="card-MAX" style={{ width: "18rem" }}>
                   <Card.Img
                     variant="top"
                     className="IMGG"
                     src={tarefa.imagem}
                   />
                   <Card.Body>
-                    <Card.Title>{tarefa.title}</Card.Title>
-                    <Card.Text>{tarefa.description}</Card.Text>
+                    <Card.Title>Título:{tarefa.title}</Card.Title>
+                    <Card.Text>Objetivo:{tarefa.objective}</Card.Text>
                   </Card.Body>
                   <ListGroup className="list-group-flush">
-                    <ListGroup.Item>{tarefa.objective}</ListGroup.Item>
+                    <ListGroup.Item>Descrição:{tarefa.description}</ListGroup.Item>
                   </ListGroup>
 
                   <Card.Body>

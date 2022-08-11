@@ -21,3 +21,8 @@
     color: #053677;
     font-style: italic;
 }
+
+legend{
+    font-family: 'Rubik Moonrocks';
+    font-weight: bold;
+}

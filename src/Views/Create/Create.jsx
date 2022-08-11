@@ -61,18 +61,20 @@ function Create() {
         <legend>Adicionar Nova Tarefa</legend>
         <div className="Form-New-Task">
           <input
+            maxLength={20}
             value={titulo}
             type="text"
             onChange={HandleChangeCreateTitle}
             className="Form"
-            placeholder="Digite um Título"
+            placeholder="Digite um Título (MAX. 20 CHARACTERES)"
           />
           <input
+            maxLength={27}
             value={objetivo}
             type="text"
             onChange={HandleChangeCreateobjetivo}
             className="Form"
-            placeholder="Objetivo da Tarefa"
+            placeholder="Objetivo da Tarefa(MAX. 27 CHARACTERES)"
           />
           <input
             value={imagem}
@@ -84,8 +86,10 @@ function Create() {
           <textarea
             value={descricao}
             onChange={HandleChangeCreateDescricao}
-            placeholder="Uma breve descrição da Tarefa"
+            placeholder="Uma breve descrição da Tarefa(MAX. 55 CHARACTERES)"
             className="Form"
+            maxLength={55}
+
           ></textarea>
           <button onClick={handleAddClick} className="Form">
             CADASTRAR

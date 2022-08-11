@@ -10,7 +10,7 @@ function App() {
   
   return (
     <div className="App">
-        <h1> To Do List </h1>
+        <h1 className='Title'> To Do List </h1>
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/details' element={<Details/>}/>
