@@ -8,7 +8,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 function Details(closeModal) {
   const { id } = useParams();
-
+  
   const baseUrl = `http://localhost:8000/tarefas/${id}`;
 
   const [detalhes, setDetalhes] = useState([]);

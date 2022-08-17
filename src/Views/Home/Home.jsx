@@ -7,7 +7,6 @@ import Button from "react-bootstrap/Button";
 import Create from "../Create/Create";
 import { Link } from "react-router-dom";
 import Editar from '../../Assets/Icons/Editar.png'
-import axios from "axios";
 
 function Home() {
   //state do getall
@@ -67,13 +66,9 @@ function Home() {
   }
 
 
-
   useEffect(() => {
     getAllTarefas();
   }, [tarefaDeletada]); // Ao passar apenas a função sem um valor no colchetes, ele renderizará a função passada no useEffect apenas na primeira renderização, se colocar algum valor dentro do colchetes, ele renderizará sempre que o valor entre colchetes for alterado.
-
-
-
 
   return (
     <div>
@@ -119,8 +114,11 @@ function Home() {
                     className="IMGG"
                     src={tarefa.imagem}
                   />
-                  <div>
-                  <img className="ICON-EDIT" src={Editar}/>
+                  <div>  
+                  <Link className="DT-LINK" to={`/edit`}>
+                  <img className="ICON-EDIT" alt="img-tarefa" src={Editar}/>
+                      </Link>        
+                  
                   </div>
                   <Card.Body>
                     <Card.Title>Título:{tarefa.title}</Card.Title>
@@ -143,6 +141,7 @@ function Home() {
                 </Card>
               </div>
             ))}
+            
           </div>
         </>
       )}
