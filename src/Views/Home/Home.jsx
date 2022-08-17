@@ -6,6 +6,8 @@ import Spinner from "react-bootstrap/Spinner";
 import Button from "react-bootstrap/Button";
 import Create from "../Create/Create";
 import { Link } from "react-router-dom";
+import Editar from '../../Assets/Icons/Editar.png'
+import axios from "axios";
 
 function Home() {
   //state do getall
@@ -39,6 +41,39 @@ function Home() {
   useEffect(() => {
     getAllTarefas();
   }, []);
+
+
+
+  // DELETAR TAREFAS
+  const [tarefaDeletada, setTarefaDeletada] = useState({});
+ 
+  async function deleteTarefa(id) {
+    try{
+    const response = await fetch(`http://localhost:8000/tarefas/${id}`, {
+      method: "delete",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "cors",
+    });
+    const response_tarefa_deletada = await response.json();
+    setTarefaDeletada(response_tarefa_deletada);
+    alert("Tarefa Deletada com sucesso!")
+  }catch(e){
+    alert("Erro ao deletar, por favor recarregue a página!");
+      //AKI ele exibe o error no console
+      console.error(e);
+  }
+  }
+
+
+
+  useEffect(() => {
+    getAllTarefas();
+  }, [tarefaDeletada]); // Ao passar apenas a função sem um valor no colchetes, ele renderizará a função passada no useEffect apenas na primeira renderização, se colocar algum valor dentro do colchetes, ele renderizará sempre que o valor entre colchetes for alterado.
+
+
+
 
   return (
     <div>
@@ -84,6 +119,9 @@ function Home() {
                     className="IMGG"
                     src={tarefa.imagem}
                   />
+                  <div>
+                  <img className="ICON-EDIT" src={Editar}/>
+                  </div>
                   <Card.Body>
                     <Card.Title>Título:{tarefa.title}</Card.Title>
                     <Card.Text>Objetivo:{tarefa.objective}</Card.Text>
@@ -92,12 +130,15 @@ function Home() {
                     <ListGroup.Item>Descrição:{tarefa.description}</ListGroup.Item>
                   </ListGroup>
 
-                  <Card.Body>
+                  <Card.Body className="Button-Card">
                     <Button variant="outline-info">
                       <Link className="DT-LINK" to={`/details/${tarefa.id}`}>
                         Detalhes
                       </Link>
                     </Button>{" "}
+                    <Button   onClick={() => deleteTarefa(tarefa.id)}
+                id={tarefa.id} className="del" variant="danger">Deletar</Button>{' '}
+              
                   </Card.Body>
                 </Card>
               </div>
