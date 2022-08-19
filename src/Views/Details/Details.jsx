@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-function Details(closeModal) {
+function Details() {
   const { id } = useParams();
   
   const baseUrl = `http://localhost:8000/tarefas/${id}`;

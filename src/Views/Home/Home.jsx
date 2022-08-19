@@ -28,6 +28,8 @@ function Home() {
       setLoading(false);
       //aki está a resposta json, aki faço o que quiser cm ela
       setTarefa(json);
+      // export const jsonedit = json
+
       //o Catch ele recebe o erro como parâmetro e eu faço o que quiser com essa informação, como por exemplo setLoading(false) para o spinner de carregar
     } catch (e) {
       setLoading(false);
@@ -115,10 +117,10 @@ function Home() {
                     src={tarefa.imagem}
                   />
                   <div>  
-                  <Link className="DT-LINK" to={`/edit`}>
+                  <Link className="DT-LINK" to={`/edit/${tarefa.id}`}>
                   <img className="ICON-EDIT" alt="img-tarefa" src={Editar}/>
                       </Link>        
-                  
+                  {/* onClick={} */}
                   </div>
                   <Card.Body>
                     <Card.Title>Título:{tarefa.title}</Card.Title>
