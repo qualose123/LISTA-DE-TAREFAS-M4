@@ -25,6 +25,8 @@ function Create() {
 //funçao para ligar o state aos json da api
   const handleAddClick = async () => {
     if (tarefas) {
+      
+
      const response = await fetch("http://localhost:8000/tarefas", {
         method: "POST",
         body: JSON.stringify(
