@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyledButton } from "../../Styles/styled-components";
 import "./Create.css";
+import {TarefaService} from '../../Services/TarefaServices'
 
 function Create() {
   //state dos itens do create
@@ -25,31 +26,18 @@ function Create() {
 //funçao para ligar o state aos json da api
   const handleAddClick = async () => {
     if (tarefas) {
-      
-
-     const response = await fetch("http://localhost:8000/tarefas", {
-        method: "POST",
-        body: JSON.stringify(
-        tarefas,
-        ),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      let json = await response.json();
-      console.log(json);
+      let json= await TarefaService.create(tarefas)
       if (json.id) {
         handleHomeButton()
         alert("Tarefa adicionado com Sucesso!");
         
       } else {
         alert("Ocorreu Algum Erro!");
-      }
+      }  
     } else {
       alert("Preencha os dados!");
     }
   };
-
   return (
     <>
       <fieldset>
