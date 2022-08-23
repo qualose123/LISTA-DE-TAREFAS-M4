@@ -6,7 +6,6 @@ import Spinner from "react-bootstrap/Spinner";
 import Button from "react-bootstrap/Button";
 import Create from "../Create/Create";
 import { Link } from "react-router-dom";
-import Editar from '../../Assets/Icons/Editar.png'
 
 function Home() {
   //state do getall
@@ -116,12 +115,7 @@ function Home() {
                     className="IMGG"
                     src={tarefa.imagem}
                   />
-                  <div>  
-                  <Link className="DT-LINK" to={`/edit/${tarefa.id}`}>
-                  <img className="ICON-EDIT" alt="img-tarefa" src={Editar}/>
-                      </Link>        
-                  {/* onClick={} */}
-                  </div>
+                  
                   <Card.Body>
                     <Card.Title>Título:{tarefa.title}</Card.Title>
                     <Card.Text>Objetivo:{tarefa.objective}</Card.Text>
