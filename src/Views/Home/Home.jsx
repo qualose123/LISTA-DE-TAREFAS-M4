@@ -6,7 +6,7 @@ import Spinner from "react-bootstrap/Spinner";
 import Button from "react-bootstrap/Button";
 import Create from "../Create/Create";
 import { Link } from "react-router-dom";
-
+import {TarefaService} from '../../Services/TarefaServices'
 function Home() {
   //state do getall
   const [tarefa, setTarefa] = useState([]);
@@ -18,17 +18,9 @@ function Home() {
     try {
       //aki faz com q o spinner apareça antes e durante a requisição a API
       setLoading(true);
-      //diz q é uma func asyncrona
-      //faz requisição e espera a resposta, e guarda essa resposta
-      let response = await fetch("http://localhost:8000/tarefas");
-      //Espera a resposta e transforma ela em json e salva o mesmo na variavel
-      let json = await response.json();
-      //esse aki faz com que o spinner suma, após a requisição da API
+      let json= await TarefaService.getLista();
       setLoading(false);
-      //aki está a resposta json, aki faço o que quiser cm ela
       setTarefa(json);
-      // export const jsonedit = json
-
       //o Catch ele recebe o erro como parâmetro e eu faço o que quiser com essa informação, como por exemplo setLoading(false) para o spinner de carregar
     } catch (e) {
       setLoading(false);
