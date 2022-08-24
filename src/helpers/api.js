@@ -10,6 +10,6 @@ const urls = {
 };
 export const Api = {
   // baseUrl: "http://localhost:8000",
-  baseUrl: urls[process.env.NODE_ENV],
+  baseUrl: "https:/api-fake.herokuapp.com",
   ...tarefaContext,
 };
