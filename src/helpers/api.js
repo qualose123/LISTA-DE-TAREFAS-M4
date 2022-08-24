@@ -1,5 +1,5 @@
 const tarefaContext = {
-  tarefaEndpoint: () => `${Api.baseUrl}/tarefas`,
+  tarefaEndpoint: () => `https:/api-fake.herokuapp.com/tarefas`,
   tarefa: () => tarefaContext.tarefaEndpoint(),
   tarefaById: (id) => `${tarefaContext.tarefaEndpoint()}/${id}`,
 };
