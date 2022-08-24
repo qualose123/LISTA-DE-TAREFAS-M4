@@ -1,70 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One:ital@1&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Moonrocks&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One:ital@1&display=swap");
 
-.Title{
-    padding-top: 2rem;
-     font-family: 'Rubik Moonrocks';
-     font-size: 60px;
-     text-shadow: -2px -2px #0396FF;
-   } 
-   
-.container-Mainn{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap:1rem;
-    align-items: center;
-    min-height: 100vh;
+.Title {
+  padding-top: 2rem;
+  font-family: "Rubik Moonrocks";
+  font-size: 60px;
+  text-shadow: -2px -2px #0396ff;
 }
 
-.ListCardTitle{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    font-family: 'Rubik Moonrocks';
-    font-size: 50px;
-    text-shadow: -2px -2px #0396FF
+.container-Mainn {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  min-height: 100vh;
 }
 
-.IMGG{
-    max-height:217.35px;
-    min-height: 217.35px;
+.ListCardTitle {
+  margin-top: 2rem;
+  font-family: "Rubik Moonrocks";
+  font-size: 50px;
+  text-shadow: -2px -2px #0396ff;
 }
 
-.ICON-EDIT{
-    width: 38px;
-    height: 38px;
-    border: 2px solid yellow;
-    background-color:rgb(182, 255, 10) ;
-    border-radius: 50%;
-    z-index: 999px;
-    position: absolute;
-    padding: 1px;
-    top: -5px;
-    right: -5px;
-    cursor: pointer;
+.IMGG {
+  max-height: 217.35px;
+  min-height: 217.35px;
 }
 
-.C-Card{
-    margin-bottom: 0.5rem;
-    font-family: 'Alumni sans';
-    font-weight: bold;
-    max-height: 443.34px;
+.ICON-EDIT {
+  width: 38px;
+  height: 38px;
+  border: 2px solid yellow;
+  background-color: rgb(182, 255, 10);
+  border-radius: 50%;
+  z-index: 999px;
+  position: absolute;
+  padding: 1px;
+  top: -5px;
+  right: -5px;
+  cursor: pointer;
 }
 
-.DT-LINK{
-    text-decoration: none;
+.C-Card {
+  margin-bottom: 0.5rem;
+  font-family: "Alumni sans";
+  font-weight: bold;
+  max-height: 443.34px;
 }
 
-.card-MAX{
-    min-height: 443.34px;
-    max-height: 443.34px;
+.DT-LINK {
+  text-decoration: none;
 }
 
-.Button-Card{
-   display: flex;
-   justify-content: space-evenly;
+.card-MAX {
+  min-height: 443.34px;
+  max-height: 443.34px;
 }
 
-.del{
-    width: 81.98px;
+.Button-Card {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.del {
+  width: 81.98px;
 }

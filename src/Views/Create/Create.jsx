@@ -1,39 +1,37 @@
 import { useState } from "react";
 import { StyledButton } from "../../Styles/styled-components";
 import "./Create.css";
-import {TarefaService} from '../../Services/TarefaServices'
+import { TarefaService } from "../../Services/TarefaServices";
 
 function Create() {
   //state dos itens do create
-  const [tarefas,setTarefas]= useState({
-    title:"",
-    objective:"",
-    imagem:"",
-    description:""
-  })
+  const [tarefas, setTarefas] = useState({
+    title: "",
+    objective: "",
+    imagem: "",
+    description: "",
+  });
 
   //capturador do valor dos inputs
-  function HandleChange(e){
-    setTarefas((prev)=>({...prev, [e.target.name]:e.target.value}))
+  function HandleChange(e) {
+    setTarefas((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
   // Função para recarregar a página ao criar uma tarefa
   const handleHomeButton = () => {
-    window.location.reload()
+    window.location.reload();
   };
 
-
-//funçao para ligar o state aos json da api
+  //funçao para ligar o state aos json da api
   const handleAddClick = async () => {
     if (tarefas) {
-      let json= await TarefaService.create(tarefas)
+      let json = await TarefaService.create(tarefas);
       if (json.id) {
-        handleHomeButton()
+        handleHomeButton();
         alert("Tarefa adicionado com Sucesso!");
-        
       } else {
         alert("Ocorreu Algum Erro!");
-      }  
+      }
     } else {
       alert("Preencha os dados!");
     }
@@ -47,7 +45,7 @@ function Create() {
             maxLength={24}
             name="title"
             type="text"
-            onChange={ (e) => HandleChange(e)}
+            onChange={(e) => HandleChange(e)}
             className="Form"
             placeholder="Digite um Título (MAX. 24 CHARACTERES)"
           />
@@ -72,11 +70,8 @@ function Create() {
             placeholder="Uma breve descrição da Tarefa(MAX. 55 CHARACTERES)"
             className="Form"
             maxLength={55}
-
           ></textarea>
-          <StyledButton onClick={handleAddClick}>
-            CADASTRAR       
-          </StyledButton>
+          <StyledButton onClick={handleAddClick}>CADASTRAR</StyledButton>
         </div>
       </fieldset>
     </>

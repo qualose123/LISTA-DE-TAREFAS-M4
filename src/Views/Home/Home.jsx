@@ -6,7 +6,7 @@ import Spinner from "react-bootstrap/Spinner";
 import Button from "react-bootstrap/Button";
 import Create from "../Create/Create";
 import { Link } from "react-router-dom";
-import {TarefaService} from '../../Services/TarefaServices'
+import { TarefaService } from "../../Services/TarefaServices";
 function Home() {
   //state do getall
   const [tarefa, setTarefa] = useState([]);
@@ -18,7 +18,7 @@ function Home() {
     try {
       //aki faz com q o spinner apareça antes e durante a requisição a API
       setLoading(true);
-      let json= await TarefaService.getLista();
+      let json = await TarefaService.getLista();
       setLoading(false);
       setTarefa(json);
       //o Catch ele recebe o erro como parâmetro e eu faço o que quiser com essa informação, como por exemplo setLoading(false) para o spinner de carregar
@@ -34,30 +34,27 @@ function Home() {
     getAllTarefas();
   }, []);
 
-
-
   // DELETAR TAREFAS
   const [tarefaDeletada, setTarefaDeletada] = useState({});
- 
+
   async function deleteTarefa(id) {
-    try{
-    const response = await fetch(`http://localhost:8000/tarefas/${id}`, {
-      method: "delete",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      mode: "cors",
-    });
-    const response_tarefa_deletada = await response.json();
-    setTarefaDeletada(response_tarefa_deletada);
-    alert("Tarefa Deletada com sucesso!")
-  }catch(e){
-    alert("Erro ao deletar, por favor recarregue a página!");
+    try {
+      const response = await fetch(`http://localhost:8000/tarefas/${id}`, {
+        method: "delete",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "cors",
+      });
+      const response_tarefa_deletada = await response.json();
+      setTarefaDeletada(response_tarefa_deletada);
+      alert("Tarefa Deletada com sucesso!");
+    } catch (e) {
+      alert("Erro ao deletar, por favor recarregue a página!");
       //AKI ele exibe o error no console
       console.error(e);
+    }
   }
-  }
-
 
   useEffect(() => {
     getAllTarefas();
@@ -65,7 +62,7 @@ function Home() {
 
   return (
     <div>
-       <h1 className='Title'> To Do List </h1>
+      <h1 className="Title"> To Do List </h1>
       {/* Esse Loading abaixo exibe um spinner de giratorio com a palavra loading, enquanto o site estiver requisitando */}
       {loading && (
         <div>
@@ -96,7 +93,7 @@ function Home() {
       {!loading && (
         <>
           <Create />
-        <h2 className="ListCardTitle">Tarefas</h2>
+          <h2 className="ListCardTitle">Tarefas</h2>
           <div className="container-Mainn">
             {tarefa.map((tarefa, index) => (
               <div className="C-Card" key={index}>
@@ -107,13 +104,15 @@ function Home() {
                     className="IMGG"
                     src={tarefa.imagem}
                   />
-                  
+
                   <Card.Body>
                     <Card.Title>Título:{tarefa.title}</Card.Title>
                     <Card.Text>Objetivo:{tarefa.objective}</Card.Text>
                   </Card.Body>
                   <ListGroup className="list-group-flush">
-                    <ListGroup.Item>Descrição:{tarefa.description}</ListGroup.Item>
+                    <ListGroup.Item>
+                      Descrição:{tarefa.description}
+                    </ListGroup.Item>
                   </ListGroup>
 
                   <Card.Body className="Button-Card">
@@ -122,14 +121,18 @@ function Home() {
                         Detalhes
                       </Link>
                     </Button>{" "}
-                    <Button   onClick={() => deleteTarefa(tarefa.id)}
-                id={tarefa.id} className="del" variant="danger">Deletar</Button>{' '}
-              
+                    <Button
+                      onClick={() => deleteTarefa(tarefa.id)}
+                      id={tarefa.id}
+                      className="del"
+                      variant="danger"
+                    >
+                      Deletar
+                    </Button>{" "}
                   </Card.Body>
                 </Card>
               </div>
             ))}
-            
           </div>
         </>
       )}
